@@ -293,6 +293,12 @@ defmodule Mix.Tasks.Protobuf.GenerateTest do
         // With a second line that continues onto
         // a third.
         bool active = 2;
+
+        SubMessage created_at = 3;
+      }
+
+      message SubMessage {
+        int32 data = 1;
       }
       """)
 
@@ -318,6 +324,14 @@ defmodule Mix.Tasks.Protobuf.GenerateTest do
                third line.
 
                  This line has `indentation` and *styling*.
+
+               ## Fields
+
+               | # | Name | Type | Notes |
+               |---|---|---|---|
+               | 1 | `email` | `:string` | Single-line field comment |
+               | 2 | `active` | `:bool` | Multi-line field comment  With a second line that continues onto a third. |
+               | 3 | `created_at` | `Foo.SubMessage` |   |
                \"\"\"
              """
     end
